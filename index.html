@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBCAD</title>
+    <link rel="stylesheet" href="./app.a6a4d504.css">
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+
+    <!-- COMMAND PANELS -->
+    <div id="panel">
+        <div id="panel-header"></div>
+        <div class="panel-body">
+            <div class="left">
+                <div class="row">
+                    <div class="slidecontainer">
+                        <input type="range" min="0" max="5" value="3" step="1" class="slider">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cmd tooltip" data-cmd="UNDO">
+                        <span class="tooltiptext">Undo</span>
+                        <img src="./undo.7a8b3440.svg" class="icon-white">
+                    </div>
+                    <div class="cmd tooltip" data-cmd="REDO">
+                        <span class="tooltiptext">Redo</span>
+                        <img src="./redo.baa714e9.svg" class="icon-white">
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="row">
+                    <div class="cmd tooltip" data-cmd="PAN">
+                        <span class="tooltiptext">Pan</span>
+                        <img src="./pan.42e6a51b.svg" class="icon-white">
+                    </div>
+                    <div class="cmd tooltip" data-cmd="ZOOM">
+                        <span class="tooltiptext">Zoom</span>
+                        <img src="./zoom.db1561b2.svg" class="icon-white">
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="row">
+                    <div class="cmd tooltip" data-cmd="SELECT">
+                        <span class="tooltiptext">Select</span>
+                        <img src="./select2.71dd5aa2.svg" class="icon-white">
+                    </div>
+                    <div class="cmd tooltip" data-cmd="DELETE">
+                        <span class="tooltiptext">Delete</span>
+                        <img src="./delete.0b8326fb.svg" class="icon-white">
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="row">
+                    <div class="cmd tooltip" data-cmd="MOVE">
+                        <span class="tooltiptext">Move</span>
+                        <img src="./move.f40646e1.svg" class="icon-white">
+                    </div>
+                    <div class="cmd tooltip" data-cmd="COPY">
+                        <span class="tooltiptext">Copy</span>
+                        <img src="./copy.6b003de9.svg" class="icon-white">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cmd tooltip" data-cmd="ROTATE">
+                        <span class="tooltiptext">Rotate</span>
+                        <img src="./rotate.b5f801fc.svg" class="icon-white">
+                    </div>
+                    <div class="cmd tooltip" data-cmd="RESIZE">
+                        <span class="tooltiptext">Edit</span>
+                        <img src="./resize.3eb09432.svg" class="icon-white">
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="row">
+                    <div class="cmd tooltip" data-cmd="LINE">
+                        <span class="tooltiptext">Line</span>
+                        <img src="./line.4a465daf.svg" class="icon-white">
+                    </div>
+                    <div class="cmd tooltip" data-cmd="RECT">
+                        <span class="tooltiptext">Rectangle</span>
+                        <img src="./rectangle.bd50b1c2.svg" class="icon-white">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cmd tooltip" data-cmd="CIRCLE">
+                        <span class="tooltiptext">Circle</span>
+                        <img src="./circle.34556fef.svg" class="icon-white">
+                    </div>
+                    <div class="cmd tooltip disabled" data-cmd="ARC">
+                        <span class="tooltiptext">Arc</span>
+                        <img src="./arc.28ae92b9.svg" class="icon-white">
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="row">
+                    <div class="cmd tooltip" data-cmd="TEXT">
+                        <span class="tooltiptext">Text</span>
+                        <img src="./text.7af1b753.svg" class="icon-white">
+                    </div>
+                    <div class="cmd tooltip" data-cmd="MEASURES">
+                        <span class="tooltiptext">Measures</span>
+                        <img src="./measure.350fe55b.svg" class="icon-white">
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="row">
+                    <div class="cmd tooltip" data-cmd="FILL">
+                        <span class="tooltiptext">Fill Colors</span>
+                        <img src="./fill.7b5fc0cf.svg" class="icon-white">
+                    </div>
+                    <div class="cmd tooltip" data-cmd="PALETTE">
+                        <span class="tooltiptext">Change theme</span>
+                        <img src="./palette.2f69d65e.svg" class="icon-white">
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="row">
+                    <div class="cmd tooltip" data-cmd="SAVE">
+                        <span class="tooltiptext">Save</span>
+                        <img src="./save.57e854ca.svg" class="icon-white">
+                    </div>
+                    <div class="cmd tooltip" data-cmd="IMPORT">
+                        <span class="tooltiptext">Import</span>
+                        <img src="./import.5115fb86.svg" class="icon-white">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cmd tooltip" data-cmd="CONFIG">
+                        <span class="tooltiptext">Chenge Unit System</span>
+                        <img src="./unitsystem.029097b6.svg" class="icon-white">
+                    </div>
+                    <div class="cmd tooltip" data-cmd="HELP">
+                        <span class="tooltiptext">Help</span>
+                        <img src="./help.d86df452.svg" class="icon-white">
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <ul class="colors"></ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TEXT COMMAND DIALOGUE -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <input data-text="">
+            <span class="save">&#10004;</span>
+            <span class="close">&times;</span>
+        </div>
+    </div>
+
+    <!-- DOWNLOAD -->
+    <a id="downloadAnchorElem" style="display:none"></a>
+
+    <!-- IMPORT FILE -->
+    <input id="file-input" type="file" name="name" style="display: none;">
+</body>
+
+<!--webcomponents-->
+<script src="./webcomponentsjs/webcomponents-loader.js"></script>
+<script src="./app.a6a4d504.js" type="module"></script>
+
+</html>

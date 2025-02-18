@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font: 1rem Arial;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: rgb(31, 40, 49);
+    padding: 10px 5px;
+    border: 1px solid grey;
+    border-radius: 3px;
+    width: 240px;
+    display: flex;
+}
+
+.modal-content input {
+    outline: none;
+    background-color: transparent;
+    color: white;
+}
+
+/* The Close/save Buttons */
+.close,
+.save {
+    margin-left: 12px;
+    font-weight: bold;
+}
+
+.close {
+    color: red;
+    font-size: 30px;
+}
+
+.save {
+    font-size: 24px;
+    color: green;
+}
+
+.close:hover,
+.close:focus,
+.save:hover,
+.save:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ----------------------------------- */
+#panel {
+    position: absolute;
+    top: 14%;
+    left: 85%;
+    z-index: 50;
+    width: 120px;
+    height: 410px;
+}
+
+#panel-header {
+    padding: 10px;
+    cursor: move;
+    z-index: 51;
+    height: 40px;
+    width: 90px;
+    background-color: rgb(23, 29, 49);
+    border: 1px solid grey;
+    border-radius: 4px;
+}
+
+.panel-body {
+    width: 120px;
+    display: flex;
+    z-index: 50;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.left {
+    width: 90px;
+    background-color: rgb(23, 29, 49);
+    border: 1px solid grey;
+    border-radius: 4px;
+    z-index: 49;
+}
+
+.right {
+    display: inline-block;
+    width: 30px;
+    background-color: rgb(23, 29, 49);
+    border: 1px solid grey;
+    border-radius: 4px;
+    z-index: 48;
+    color: rgb(252, 233, 79);
+    transition: all 300ms;
+    transform: translateX(-30px);
+}
+
+.hide {
+    transform: translateX(0px);
+}
+
+.row {
+    display: flex;
+    height: 32px;
+}
+
+.cmd {
+    flex: 1;
+    padding: 2px;
+    cursor: pointer;
+    font-size: 65%;
+    text-align: center;
+}
+
+.selected {
+    background-color: orange;
+    color: black;
+}
+
+.disabled {
+    background-color: darkslategray;
+    cursor: not-allowed;
+}
+
+.divider {
+    border-top: 1px dashed gray;
+    padding: 0px 2px;
+}
+
+/* 
+    ICONS: https://materialdesignicons.com/
+
+    To change the color: 
+    https://stackoverflow.com/questions/22252472/how-to-change-the-color-of-an-svg-element
+    https://codepen.io/sosuke/pen/Pjoqqp
+*/
+.icon-white {
+    height: 24px;
+    width: 24px;
+    filter: invert(98%) sepia(42%) saturate(4100%) hue-rotate(183deg) brightness(127%) contrast(81%);
+}
+
+ul {
+    list-style-type: none;
+}
+
+.color-dot {
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin: 3px auto;
+}
+
+.selected-color {
+    border: 4px solid orange;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 60px;
+    background-color: darkorange;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -30px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: darkorange transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.slidecontainer {
+    width: 100%;
+    padding: 6px 4px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 4px;
+    background: #e3e3e3;
+    outline: none;
+    opacity: 0.6;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12.5px;
+    height: 12.5px;
+    border-radius: 50%;
+    background: darkorange;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 12.5px;
+    height: 12.5px;
+    border-radius: 50%;
+    background: darkorange;
+    cursor: pointer;
+}
+
+
+/*# sourceMappingURL=/app.a6a4d504.css.map */
